@@ -5,7 +5,7 @@
           
 	  FILE *fptr1, *fptr2, *fptr3;
 	  int start1 = 20, end1 = 80, start2 = 50, end2 = 90, line = 1;
-	  char buffer[1500]; //Created buffer to read & store data into it and later helps to write into new file 
+	  char buffer[500]; //Created buffer to read & store data into it and later helps to write into new file 
 
 	  //opening file1 and file2 in read mode
 	  fptr1 = fopen("gx_group.txt", "r");
