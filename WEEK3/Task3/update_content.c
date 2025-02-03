@@ -4,7 +4,7 @@
   int main(){
           
 	  FILE *fptr1, *fptr2, *fptr3;
-	  int start1 = 20, end1 = 80, start2 = 50, end2 = 90, line = 0;
+	  int start1 = 20, end1 = 80, start2 = 50, end2 = 90, line = 1;
 	  char buffer[1500]; //Created buffer to read & store data into it and later helps to write into new file 
 
 	  //opening file1 and file2 in read mode
@@ -48,7 +48,7 @@
 	  fflush(fptr1);// clear the data from buffer
 	  fclose(fptr1);// close the first file after reading 
 
-	  line = 0;
+	  line = 1;
 
 
 
