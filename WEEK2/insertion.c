@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 
-struct Node {
+typedef struct Node {
 
     int data;
     struct Node* next;
 
-};
+} Node;
 
 
-struct Node* createNode(int val, struct Node* temp) {
+Node* createNode(int val, Node* temp) {
 
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = val;
     newNode->next = temp;
     return newNode;
@@ -20,16 +20,16 @@ struct Node* createNode(int val, struct Node* temp) {
 }
 
 
-struct Node* convertArrtoLL(int arr[], int n) {
+Node* convertArrtoLL(int arr[], int n) {
 
     if (n == 0) return NULL;
 
-    struct Node* head = createNode(arr[0], NULL);
-    struct Node* temp1 = head;
+    Node* head = createNode(arr[0], NULL);
+    Node* temp1 = head;
 
     for (int i = 1; i < n; i++) {
 
-        struct Node* temp2 = createNode(arr[i], NULL);
+        Node* temp2 = createNode(arr[i], NULL);
         temp1->next = temp2;
         temp1 = temp2;
 
@@ -40,9 +40,9 @@ struct Node* convertArrtoLL(int arr[], int n) {
 }
 
 
-struct Node* findTailOfLL(struct Node* head) {
+Node* findTailOfLL(Node* head) {
 
-    struct Node* temp = head;
+    Node* temp = head;
     while (temp->next != NULL) {
 
         temp = temp->next;
@@ -54,7 +54,7 @@ struct Node* findTailOfLL(struct Node* head) {
 }
 
 
-struct Node* insertElement(struct Node* head, int val, int index, int n) {
+Node* insertElement(Node* head, int val, int index, int n) {
 
     if (index > n) {
 
@@ -62,7 +62,7 @@ struct Node* insertElement(struct Node* head, int val, int index, int n) {
 
     }
 
-    struct Node* newNode = createNode(val, NULL);
+    Node* newNode = createNode(val, NULL);
 
    
     if (index == 0) {
@@ -72,8 +72,8 @@ struct Node* insertElement(struct Node* head, int val, int index, int n) {
 
     }
 
-    struct Node* prev = NULL;
-    struct Node* temp = head;
+    Node* prev = NULL;
+    Node* temp = head;
     int cnt = 0;
 
    
@@ -97,9 +97,9 @@ struct Node* insertElement(struct Node* head, int val, int index, int n) {
 }
 
 
-void printLL(struct Node* head) {
+void printLL(Node* head) {
 
-    struct Node* temp = head;
+    Node* temp = head;
 
     while (temp != NULL) {
 
@@ -125,7 +125,7 @@ int main() {
     }
 
     int* arr = (int*)malloc(sizeof(int) * n);
-
+ 
     for (int i = 0; i < n; i++) {
 
         printf("Enter the value at index %d: ", i);
@@ -157,7 +157,7 @@ int main() {
     
     else {
 
-        struct Node* head = convertArrtoLL(arr, n);
+        Node* head = convertArrtoLL(arr, n);
         head = insertElement(head, val, index, n);
 
         printf("The linked list data is:\n");

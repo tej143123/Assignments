@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct Node {
+typedef struct Node {
 
     int data;
     struct Node* next;
 
-};
+} Node;
 
 
-struct Node* createNode(int val, struct Node* temp) {
+Node* createNode(int val, Node* temp) {
 
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = val;
     newNode->next = temp;
     return newNode;
@@ -20,15 +20,15 @@ struct Node* createNode(int val, struct Node* temp) {
 }
 
 
-struct Node* convertArrtoLL(int arr[], int n) {
+Node* convertArrtoLL(int arr[], int n) {
 
     if (n == 0) return NULL;
 
-    struct Node* head = createNode(arr[0], NULL);
-    struct Node* temp1 = head;
+    Node* head = createNode(arr[0], NULL);
+    Node* temp1 = head;
 
     for (int i = 1; i < n; i++) {
-        struct Node* temp2 = createNode(arr[i], NULL);
+        Node* temp2 = createNode(arr[i], NULL);
         temp1->next = temp2;
         temp1 = temp2;
     }
@@ -38,15 +38,15 @@ struct Node* convertArrtoLL(int arr[], int n) {
 }
 
 
-struct Node* reverseLL(struct Node* head) {
+Node* reverseLL(Node* head) {
 
     if (head == NULL || head->next == NULL) return head;
 
-    struct Node* temp = head;
-    struct Node* prev = NULL;
+    Node* temp = head;
+    Node* prev = NULL;
 
     while (temp != NULL) {
-        struct Node* front = temp->next;
+        Node* front = temp->next;
         temp->next = prev;
         prev = temp;
         temp = front;
@@ -57,13 +57,13 @@ struct Node* reverseLL(struct Node* head) {
 }
 
 
-struct Node* implementationOfLLUsingQueue(struct Node* head, int n) {
+Node* implementationOfLLUsingQueue(Node* head, int n) {
 
     int* queue = (int*)malloc(sizeof(int) * n);
     int front = -1;
 
-    struct Node* temp1 = head;
-    struct Node* temp2 = head;
+    Node* temp1 = head;
+    Node* temp2 = head;
 
 
     while (temp1 != NULL) {
@@ -84,9 +84,9 @@ struct Node* implementationOfLLUsingQueue(struct Node* head, int n) {
 }
 
 
-void printLL(struct Node* head) {
+void printLL(Node* head) {
 
-    struct Node* temp = head;
+    Node* temp = head;
     while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->next;
@@ -119,7 +119,7 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    struct Node* head = convertArrtoLL(arr, n);
+    Node* head = convertArrtoLL(arr, n);
 
     printf("The original linked list is: ");
     printLL(head);

@@ -1,0 +1,4 @@
+emp_id = 101
+emp_name = Rahul
+total_days = 30
+month_sal = 20000
